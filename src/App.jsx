@@ -7,20 +7,21 @@ import Hero from "./components/Hero";
 import Roadmap from "./components/Roadmap";
 import Services from "./components/Services";
 import Footer from "./components/Footer";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import MainLayout from "./components/MainLayout";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 const App = () => {
   return (
-    <>
-      <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
-        <Header />
-        <Hero />
-        <Benefits />
-
-        <Services />
-        <Roadmap />
-        <Footer />
-      </div>
-      <ButtonGradient />
-    </>
+    <Router>
+      <Routes>
+        {/* Define a route for the main layout */}
+        <Route path="/" element={<MainLayout />} />
+        {/* Define a separate route for the login page */}
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+      </Routes>
+    </Router>
   );
 };
 
